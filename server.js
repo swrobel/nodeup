@@ -1,5 +1,6 @@
 var http = require("http");
 var fs = require('fs');
+var meetup = require('./meetup');
 var loadedFiles = {};
 function returnData(res, code, data) {
     res.writeHead(code, {'Content-Type': 'text/plain'});
@@ -7,7 +8,7 @@ function returnData(res, code, data) {
 }
 
 function start() {
-  function onRequest(request, response) {
+  function onRequest(req, res) {
     console.log("Request received.");
     if (loadedFiles[req.url])
         return returnData(res, 200, "Cached: " + loadedFiles[req.url]);
@@ -21,10 +22,10 @@ function start() {
             returnData(res, 200, data);
         }
     });
-    response.end();
+    res.end();
   }
 
-  http.createServer(onRequest).listen(8888);
+  http.createServer(onRequest).listen(process.env.PORT);
   console.log("Server has started.");
   
 }
