@@ -1,16 +1,32 @@
 var http = require("http");
-var Spire = require('spire.io.js');
+var fs = require('fs');
+var loadedFiles = {};
+function returnData(res, code, data) {
+    res.writeHead(code, {'Content-Type': 'text/plain'});
+    res.end(data);
+}
 
 function start() {
   function onRequest(request, response) {
     console.log("Request received.");
-    response.writeHead(200, {"Content-Type": "text/plain"});
-    response.write("Hello World");
+    if (loadedFiles[req.url])
+        return returnData(res, 200, "Cached: " + loadedFiles[req.url]);
+
+    fs.readFile(__dirname + req.url, 'utf-8', function(err, data) {
+        if (err) {
+            returnData(res, 404, 'File ' + req.url + ' not found\n');
+        }
+        else {
+            loadedFiles[req.url] = data;
+            returnData(res, 200, data);
+        }
+    });
     response.end();
   }
 
-  http.createServer(onRequest).listen(process.env.PORT);
+  http.createServer(onRequest).listen(8888);
   console.log("Server has started.");
+  
 }
 
 exports.start = start;
