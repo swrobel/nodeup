@@ -1,3 +1,5 @@
+Meetup:
+http://www.meetup.com/meetup_api/docs/2/member/#get
 
 Twitter: NO authorization or API key needed!
 
@@ -13,12 +15,22 @@ Follow button HTML + JS
 .com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
 
-
 Facebook:
+Get public info:
+https://graph.facebook.com/keenahn
+https://graph.facebook.com/keenahn/picture?type=large
+
+Subscribe button HTML + JS:
+<div class="fb-subscribe" data-href="https://www.facebook.com/zuck" data-show-faces="true" data-width="450"></div>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=169427296467164";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 
-
-
-
-
-Linkedin:
+LinkedIn:
