@@ -1,0 +1,9 @@
+{
+    "name": "nodeup-dependencies"
+  , "version": "0.0.1"
+  , "private": true
+  , "dependencies": {
+      "fermata":"x",
+      "spire.io.js":"x"
+  }
+}
