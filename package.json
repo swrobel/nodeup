@@ -4,6 +4,7 @@
   , "private": true
   , "dependencies": {
       "request":"x",
-      "spire.io.js":"x"
+      "spire.io.js":"x",
+      "path":"x"
   }
 }
