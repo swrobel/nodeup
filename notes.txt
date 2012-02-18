@@ -1,0 +1,9 @@
+
+Twitter: NO authorization or API key needed!
+
+Get user profile:
+http://api.twitter.com/1/users/show.json?screen_name=keenahn
+
+Get 20 most recent tweets
+http://api.twitter.com/1/statuses/user_timeline.json?screen_name=keenahn
+
