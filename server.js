@@ -1,4 +1,5 @@
 var http = require("http");
+var Spire = require('spire.io.js');
 
 function start() {
   function onRequest(request, response) {
@@ -8,7 +9,7 @@ function start() {
     response.end();
   }
 
-  http.createServer(onRequest).listen(8888);
+  http.createServer(onRequest).listen(process.env.PORT);
   console.log("Server has started.");
 }
 
