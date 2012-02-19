@@ -76,6 +76,7 @@ http.createServer(function (req, res) {
                 mime = "text/plain";    
             }
 
+
             res.writeHead(200, {'Content-Type': mime});
             res.end(data);
         }
